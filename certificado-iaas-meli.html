@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificado – IAAS Clínica Dávila</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --color-primario: #007b9c;
+      --color-secundario: #00506a;
+      --color-resalte: #00b7d4;
+      --color-fondo: #f5f8fb;
+      --color-texto: #111;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 2.5rem;
+      background: radial-gradient(circle at top left, #e9f7ff 0, #f5f8fb 40%, #ffffff 100%);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid rgba(0, 183, 212, 0.25);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .marca {
+      font-size: .9rem;
+      color: var(--color-secundario);
+    }
+
+    .marca strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      color: var(--color-secundario);
+      margin: 0 0 .4rem;
+      letter-spacing: .03em;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--color-secundario);
+      margin-top: 1.6rem;
+      border-bottom: 2px solid var(--color-resalte);
+      padding-bottom: .25rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--color-secundario);
+      margin-top: 1.2rem;
+    }
+
+    p {
+      margin: .55rem 0;
+    }
+
+    strong {
+      color: var(--color-secundario);
+    }
+
+    .nombre {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+
+    .panel-datos {
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f4f9fb 0, #eaf7ff 100%);
+      border-left: 4px solid var(--color-resalte);
+    }
+
+    .panel-datos p {
+      margin: .35rem 0;
+    }
+
+    figure {
+      margin-top: 2rem;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--color-resalte);
+      background: #f4f9fb;
+      border-radius: 10px;
+    }
+
+    .firma-cargo {
+      font-size: .95rem;
+      color: var(--color-secundario);
+    }
+
+    .btn {
+      background: var(--color-primario);
+      color: #ffffff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .95rem;
+      margin-top: 10px;
+      margin-right: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      box-shadow: 0 8px 20px rgba(0, 123, 156, 0.25);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 123, 156, 0.35);
+      outline: none;
+      background: #0093b8;
+    }
+
+    .btn-secondary {
+      background: #333;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background: #000;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 1.5rem; }
+      main { padding: 1.8rem; }
+      header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+<main role="main" aria-labelledby="titulo-cert">
+
+  <header>
+    <div>
+      <h1 id="titulo-cert">Certificado de Aprobación – IAAS</h1>
+      <p class="marca">
+        <strong>Centro de Entrenamiento y Capacitación CERP</strong>
+        Clínica Dávila – Unidad de Infecciones Asociadas a la Atención en Salud (IAAS)
+      </p>
+    </div>
+
+    <!-- BOTONES DE AUDIO -->
+    <div>
+      <button class="btn" onclick="leerCertificado('es')">
+        🔊 <span>Escuchar en Español</span>
+      </button>
+      <button class="btn" onclick="leerCertificado('en')">
+        🔊 <span>Listen in English</span>
+      </button>
+      <button class="btn btn-secondary" onclick="pausarReanudar()">
+        ⏸️ <span>Pausar / Reanudar</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR DEL CERTIFICADO -->
+  <div id="certificado-texto">
+
+    <p>El Centro de Entrenamiento y Capacitación CERP de <strong>Clínica Dávila</strong> certifica que:</p>
+
+    <p class="nombre">Melissa Susan Zamorano Levy</p>
+
+    <div class="panel-datos">
+      <p><strong>RUT:</strong> 17.001.376‑K</p>
+      <p><strong>Profesión:</strong> Técnico Superior de Enfermería – Tecnóloga en Informática Biomédica</p>
+    </div>
+
+    <p>Ha participado y aprobado el curso:</p>
+
+    <h2>Curso de Infecciones Asociadas a la Atención en Salud (IAAS)</h2>
+
+    <p>
+      Desarrollado en el marco del programa de calidad y seguridad del paciente, con énfasis en prevención,
+      vigilancia epidemiológica, control de infecciones y buenas prácticas clínicas en unidades críticas y
+      servicios de hospitalización.
+    </p>
+
+    <h3>Antecedentes del curso</h3>
+    <p><strong>Institución:</strong> Clínica Dávila – CERP</p>
+    <p><strong>Modalidad:</strong> Teórico–práctico, con actividades presenciales y componentes digitales.</p>
+    <p><strong>Duración:</strong>  X horas cronológicas (actualizar según diploma).</p>
+    <p><strong>Fecha de realización:</strong>  (actualizar según diploma).</p>
+
+    <p>
+      Se extiende el presente certificado a solicitud de la interesada, para los fines que estime pertinentes,
+      en el ámbito clínico y de salud digital.
+    </p>
+
+    <p><strong>Fecha de emisión:</strong> Santiago de Chile, (actualizar fecha del diploma).</p>
+
+    <figure aria-label="Firma y validación">
+      <p class="firma-cargo">
+        <strong>Nombre del responsable académico</strong><br>
+        Coordinación Académica – Centro de Entrenamiento y Capacitación CERP<br>
+        Clínica Dávila
+      </p>
+      <p>
+        Este certificado puede ser validado mediante los registros internos del CERP y la Unidad de IAAS
+        de Clínica Dávila.
+      </p>
+    </figure>
+
+  </div> <!-- cierre contenedor -->
+
+  <!-- Nota visual de tu perfil web -->
+  <p style="margin-top:2rem;font-size:.9rem;color:#555;">
+    Documento desarrollado en formato HTML accesible, con integración de audio y estructura semántica,
+    como parte del portafolio profesional de <strong>desarrollo web clínico y salud digital</strong>.
+  </p>
+
+</main>
+
+<!-- SCRIPT DESBLOQUEADO + BILINGÜE + PRONUNCIACIÓN PERSONALIZADA -->
+<script>
+// 🔓 DESBLOQUEO UNIVERSAL PARA CHROME PC
+function desbloquearAudio() {
+    const u = new SpeechSynthesisUtterance(" ");
+    u.lang = "es-CL";
+    speechSynthesis.speak(u);
+}
+document.addEventListener("click", desbloquearAudio, { once: true });
+
+// 🔊 ESPERAR VOCES
+let vocesCargadas = false;
+speechSynthesis.onvoiceschanged = () => { vocesCargadas = true; };
+
+// 🎧 LEER CERTIFICADO
+function leerCertificado(idioma) {
+    if (!vocesCargadas) {
+        setTimeout(() => leerCertificado(idioma), 300);
+        return;
+    }
+
+    const elemento = document.getElementById("certificado-texto");
+    if (!elemento) return;
+
+    let texto = elemento.innerText.trim();
+    if (!texto) return;
+
+    speechSynthesis.cancel();
+
+    const voz = new SpeechSynthesisUtterance(texto);
+    const voces = speechSynthesis.getVoices();
+
+    if (idioma === "es") {
+        voz.lang = "es-CL";
+        voz.voice = voces.find(v => v.lang.includes("es")) || null;
+        voz.rate = 0.97;
+        voz.pitch = 1.05;
+    } else {
+        voz.lang = "en-US";
+        voz.voice = voces.find(v => v.lang.includes("en")) || null;
+        voz.rate = 0.92;
+        voz.pitch = 1.0;
+    }
+
+    voz.text = voz.text
+        .replace(/HL7/g, "hache ele siete")
+        .replace(/FHIR/g, "fáyer")
+        .replace(/SNOMED CT/g, "esnómed ce te")
+        .replace(/SQL/g, "es qu ele")
+        .replace(/ITIL/g, "itil")
+        .replace(/GitHub/g, "guit jab")
+        .replace(/TrakCare/g, "trak ker")
+        .replace(/SIDRA/g, "sidra")
+        .replace(/CIE-11/g, "cie once")
+        .replace(/CIE 11/g, "cie once")
+        .replace(/CIE-10/g, "cie diez")
+        .replace(/CIE 10/g, "cie diez")
+        .replace(/\bHIS\b/g, "jis")
+        .replace(/\bTI\b/g, "te i");
+
+    speechSynthesis.speak(voz);
+}
+
+// ⏸️ PAUSAR / REANUDAR
+let pausado = false;
+function pausarReanudar() {
+    if (!speechSynthesis.speaking) return;
+    if (!pausado) {
+        speechSynthesis.pause();
+        pausado = true;
+    } else {
+        speechSynthesis.resume();
+        pausado = false;
+    }
+}
+</script>
+
+</body>
+</html>

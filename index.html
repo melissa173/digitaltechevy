@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Melissa Zamorano Levy – Salud Digital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #020617;
+    --card: rgba(10, 25, 47, 0.85);
+    --neon: #00f5ff;
+    --neon-soft: #38bdf8;
+    --text: #e5f4ff;
+    --text-soft: #9fbad9;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 10, 20, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 0.7rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(0,255,255,0.25);
+}
+.navbar a {
+    color: var(--neon-soft);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.navbar a:hover {
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon);
+}
+#modo-btn {
+    margin-left: 1rem;
+    background: transparent;
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#modo-btn:hover {
+    background: var(--neon);
+    color: #001018;
+}
+
+/* GENERALES */
+body {
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    padding-top:70px;
+}
+
+#particles {
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+/* ENCABEZADO */
+header {
+    text-align:center;
+    padding-top:3rem;
+}
+header h1 {
+    margin:0;
+    font-size:2.4rem;
+    color:var(--neon);
+    text-shadow:0 0 12px var(--neon);
+}
+header h2 {
+    margin:0.6rem 0 0;
+    font-weight:300;
+    color:var(--text-soft);
+}
+
+/* BANNER PRINCIPAL */
+.banner {
+    max-width:1100px;
+    margin:2rem auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:2rem;
+}
+.banner img {
+    width:220px;
+    border-radius:20px;
+    animation:halo 4s infinite alternate ease-in-out;
+}
+@keyframes halo {
+    0% { box-shadow: 0 0 20px var(--neon); }
+    100% { box-shadow: 0 0 45px var(--neon-soft); }
+}
+
+/* SECCIONES */
+main {
+    max-width:1100px;
+    margin:0 auto;
+    padding:1.5rem;
+}
+section {
+    background:var(--card);
+    padding:1.6rem;
+    border-radius:18px;
+    margin:2rem 0;
+    box-shadow:0 0 25px rgba(0,255,255,0.15);
+    backdrop-filter:blur(6px);
+}
+section h3 {
+    margin-top:0;
+    font-size:1.4rem;
+    color:var(--neon);
+    text-shadow:0 0 10px var(--neon);
+}
+
+/* LISTAS */
+.checklist { list-style:none; padding:0; }
+.checklist li { display:flex; gap:0.5rem; color:var(--text-soft); }
+.check-icon { color:var(--neon); }
+
+/* BOTONES */
+.btn-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    margin-top:1rem;
+}
+.btn {
+    padding:0.55rem 1.2rem;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    background:var(--neon);
+    color:#020617;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:0.35rem;
+    transition:0.25s ease;
+    animation:pulse 2.5s infinite ease-in-out;
+}
+@keyframes pulse {
+    0% { box-shadow:0 0 12px var(--neon); }
+    50% { box-shadow:0 0 25px var(--neon-soft); }
+    100% { box-shadow:0 0 12px var(--neon); }
+}
+.btn.secondary {
+    background:transparent;
+    border:1px solid var(--neon-soft);
+    color:var(--neon-soft);
+}
+
+/* IMÁGENES DE SECCIONES */
+.img-banner-info,
+.img-acreditada,
+.img-epti {
+    width: 100%;
+    max-width: 650px;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 18px;
+    animation: glow 3s infinite ease-in-out;
+}
+.img-acreditada,
+.img-epti {
+    max-width: 260px;
+}
+
+/* GLOW */
+@keyframes glow {
+    0% { box-shadow:0 0 12px var(--neon),0 0 22px var(--neon-soft); }
+    50% { box-shadow:0 0 25px var(--neon),0 0 45px var(--neon-soft); }
+    100% { box-shadow:0 0 12px var(--neon),0 0 22px var(--neon-soft); }
+}
+
+/* RESEÑAS */
+.review-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0,255,255,0.2);
+    padding: 1.2rem;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 12px rgba(0,255,255,0.15);
+    backdrop-filter: blur(4px);
+}
+.review-author {
+    display:block;
+    margin-top:0.6rem;
+    font-size:0.9rem;
+    color:var(--neon-soft);
+}
+
+/* WHATSAPP */
+#whatsapp-btn {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    background: #00f5ff;
+    color: #001018;
+    padding: 14px 18px;
+    border-radius: 50%;
+    font-size: 26px;
+    box-shadow: 0 0 18px #00f5ff;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* REVEAL */
+.reveal {
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.9s ease;
+}
+.reveal.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="#presentacion">Presentación</a>
+    <a href="#informatica-biomedica">Informática Biomédica</a>
+    <a href="#tens">TENS</a>
+    <a href="#epti">EPTI</a>
+    <a href="#certificaciones">Certificaciones</a>
+    <a href="#reseñas">Reseñas</a>
+    <a href="#contacto">Contacto</a>
+    <button id="modo-btn" onclick="toggleModo()">🌙</button>
+</nav>
+
+<div id="particles"></div>
+
+<header>
+    <h1>Melissa Zamorano – Salud Digital</h1>
+    <h2>Tecnóloga en Informática Biomédica & TENS</h2>
+</header>
+
+<div class="banner">
+    <img src="foto-meli.png" alt="Foto Melissa Zamorano">
+    <div>
+        <p>
+            Tecnóloga en Informática Biomédica y Técnico Superior en Enfermería con 16 años de experiencia clínica.
+            Especialista en Salud Digital, interoperabilidad, HIS, calidad de datos y optimización de flujos clínicos.
+        </p>
+    </div>
+</div>
+
+<main>
+<!-- IMÁGENES MELINKA + BANNER OVALADO -->
+<section class="reveal" id="imagenes-portada">
+    <div class="imagenes-portada">
+        <img src="melinka.png" alt="Foto Melinka" class="img-meli">
+        <img src="banner-ovalado.png" alt="Banner Ovalado" class="img-banner">
+    </div>
+</section>
+
+<!-- PRESENTACIÓN -->
+<section id="presentacion" class="reveal">
+    <h3>Presentación Profesional</h3>
+    <p>
+        Profesional con sólida experiencia en salud digital, interoperabilidad clínica, HIS, estándares internacionales
+        y gestión de datos. Mi enfoque combina experiencia clínica real con competencias técnicas avanzadas.
+    </p>
+
+    <div class="btn-row">
+        <a href="cv-melissa-zamorano.html" class="btn" download>📄 Descargar CV</a>
+        <button class="btn secondary" onclick="leerCV_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerCV_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
+</section>
+
+<!-- INFORMÁTICA BIOMÉDICA -->
+<section id="informatica-biomedica" class="reveal">
+    <h3>Informática Biomédica</h3>
+
+    <img src="img_web.png" alt="Banner Informática Biomédica" class="img-banner-info">
+
+    <ul class="checklist">
+        <li><span class="check-icon">✔</span> HIS: TrakCare, SIDRA</li>
+        <li><span class="check-icon">✔</span> Interoperabilidad HL7 – FHIR – SNOMED CT</li>
+        <li><span class="check-icon">✔</span> Optimización de flujos clínicos</li>
+        <li><span class="check-icon">✔</span> Calidad de datos clínicos</li>
+        <li><span class="check-icon">✔</span> Capacitación y adopción digital</li>
+    </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerINF_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerINF_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+        <a href="certificado-titulo-tecnologa-informatica-biomedica.html" class="btn" download>
+            🎓 Descargar Certificado Tecnóloga IB
+        </a>
+    </div>
+</section>
+
+<!-- TENS -->
+<section id="tens" class="reveal">
+    <h3>Técnico Superior en Enfermería</h3>
+
+    <img src="acreditada.png" alt="Acreditación TENS" class="img-acreditada">
+
+    <ul class="checklist">
+        <li><span class="check-icon">✔</span> Administración segura de medicamentos</li>
+        <li><span class="check-icon">✔</span> Curaciones avanzadas</li>
+        <li><span class="check-icon">✔</span> Oxigenoterapia</li>
+        <li><span class="check-icon">✔</span> Manejo de traqueostomía y colostomía</li>
+        <li><span class="check-icon">✔</span> Vacunación a domicilio</li>
+    </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerTENS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerTENS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+
+        <a href="certificado-titulo-tecnico-superior-enfermeria.html" class="btn" download>
+            🎓 Descargar Título TENS
+        </a>
+
+        <a href="certificado-registro-prestadores-salud.html" class="btn" download>
+            📄 Registro Superintendencia
+        </a>
+    </div>
+</section>
+
+<!-- EPTI -->
+<section id="epti" class="reveal">
+    <h3>Evaluación de Proyectos TI – PUC</h3>
+
+    <img src="insignia-epti.png" alt="Insignia EPTI" class="img-epti">
+
+    <ul class="checklist">
+        <li><span class="check-icon">✔</span> VAN – TIR</li>
+        <li><span class="check-icon">✔</span> Flujos de caja</li>
+        <li><span class="check-icon">✔</span> Análisis de riesgos</li>
+        <li><span class="check-icon">✔</span> Priorización de iniciativas TI</li>
+    </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerEPTI_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerEPTI_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+
+        <a href="certificado-evaluacion-proyectos-ti-puc.html" class="btn" download>
+            🎓 Certificado PUC
+        </a>
+    </div>
+</section>
+
+<!-- CERTIFICACIONES OPS / PAHO -->
+<section id="certificaciones" class="reveal">
+    <h3>Certificaciones Internacionales OPS / PAHO</h3>
+
+    <ul class="checklist">
+        <li><span class="check-icon">✔</span> CIE‑11</li>
+        <li><span class="check-icon">✔</span> Interoperabilidad FHIR</li>
+        <li><span class="check-icon">✔</span> Sistemas de Información en Salud</li>
+        <li><span class="check-icon">✔</span> Acceso a Información en Salud</li>
+        <li><span class="check-icon">✔</span> Monitoreo APS</li>
+        <li><span class="check-icon">✔</span> Prevención de Infecciones</li>
+        <li><span class="check-icon">✔</span> IAAS</li>
+    </ul>
+
+    <div class="btn-row">
+        <a href="certificado-acceso-informacion-salud.html" class="btn" download>📄 Acceso Información</a>
+        <a href="certificado-cie11.html" class="btn" download>📄 CIE‑11</a>
+        <a href="certificado-sistemas-informacion-salud.html" class="btn" download>📄 Sistemas Información</a>
+        <a href="certificado-interoperabilidad-fhir.html" class="btn" download>📄 FHIR</a>
+        <a href="certificado-monitoreo-aps.html" class="btn" download>📄 APS</a>
+        <a href="certificado-prevencion-infecciones.html" class="btn" download>📄 Prevención Infecciones</a>
+        <a href="certificado-iaas-meli.html" class="btn" download>📄 IAAS</a>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerOPS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerOPS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
+</section>
+
+<!-- RESEÑAS PROFESIONALES -->
+<section id="reseñas" class="reveal">
+    <h3>Reseñas Profesionales</h3>
+
+    <div class="review-card">
+        <p>“Melissa demuestra un dominio excepcional en Salud Digital, destacando por su capacidad para integrar equipos clínicos y TI con una comunicación clara y efectiva.”</p>
+        <span class="review-author">— Coordinadora Clínica, Red de Salud</span>
+    </div>
+
+    <div class="review-card">
+        <p>“Su enfoque en interoperabilidad y calidad de datos ha permitido mejorar procesos críticos dentro del HIS. Profesional, precisa y altamente resolutiva.”</p>
+        <span class="review-author">— Ingeniero Informático, Proyecto HIS</span>
+    </div>
+
+    <div class="review-card">
+        <p>“Excelente capacidad de capacitación. Logra que equipos completos adopten nuevas herramientas digitales con confianza y seguridad.”</p>
+        <span class="review-author">— Jefa de Capacitación, APS</span>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerRESEÑAS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerRESEÑAS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar / Reanudar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
+</section>
+
+<!-- CONTACTO PROFESIONAL -->
+<section id="contacto" class="reveal">
+    <h3>Contacto Profesional</h3>
+
+    <p>📧 <strong>Email:</strong> 
+        <a href="mailto:melissazamoranolevy34@gmail.com">
+            melissazamoranolevy34@gmail.com
+        </a>
+    </p>
+
+    <p>📱 <strong>WhatsApp:</strong> 
+        <a href="https://wa.me/56958758398" target="_blank">
+            +56 9 5875 8398
+        </a>
+    </p>
+
+    <p>🔗 <strong>LinkedIn:</strong><br>
+        <a href="https://linkedin.com/in/melissa-z-7713a4217" target="_blank">
+            linkedin.com/in/melissa-z-7713a4217
+        </a>
+    </p>
+
+    <p>📸 <strong>Instagram:</strong><br>
+        <a href="https://instagram.com/tens_domicilio_melissa" target="_blank">
+            @tens_domicilio_melissa
+        </a>
+    </p>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerCONTACTO_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerCONTACTO_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar / Reanudar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
+</section>
+
+</main>
+
+<div id="whatsapp-btn" onclick="window.open('https://wa.me/56958758398','_blank')">
+    💬
+</div>
+
+<footer>© Melissa Zamorano Levy · Salud Digital</footer>
+<script>
+let synth = window.speechSynthesis;
+let utterance;
+
+/* LECTURA EN ESPAÑOL */
+function leerTexto(texto) {
+    if (synth.speaking) synth.cancel();
+    utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "es-ES";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    synth.speak(utterance);
+}
+
+/* LECTURA EN INGLÉS */
+function leerTexto_EN(texto) {
+    if (synth.speaking) synth.cancel();
+    utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    synth.speak(utterance);
+}
+
+/* PAUSAR / REANUDAR */
+function pausarReanudar() {
+    if (synth.speaking && !synth.paused) synth.pause();
+    else if (synth.paused) synth.resume();
+}
+
+/* DETENER */
+function pausarVoz() {
+    synth.cancel();
+}
+
+/* VOCES POR SECCIÓN */
+function leerCV_ES(){ leerTexto("Currículum Vitae de Melissa Zamorano Levy. Tecnóloga en Informática Biomédica y Técnico Superior en Enfermería con dieciséis años de experiencia clínica."); }
+function leerCV_EN(){ leerTexto_EN("Curriculum Vitae of Melissa Zamorano Levy. Biomedical Informatics Technologist and Senior Nursing Technician with sixteen years of clinical experience."); }
+
+function leerINF_ES(){ leerTexto("Informática Biomédica. Implementación y soporte HIS, interoperabilidad HL7, FHIR y SNOMED CT, optimización de flujos clínicos, calidad de datos y capacitación digital."); }
+function leerINF_EN(){ leerTexto_EN("Biomedical Informatics. HIS implementation and support, HL7, FHIR and SNOMED CT interoperability, clinical workflow optimization, data quality and digital adoption training."); }
+
+function leerTENS_ES(){ leerTexto("Técnico Superior en Enfermería. Administración segura de medicamentos, curaciones avanzadas, oxigenoterapia, manejo de traqueostomía y colostomía, y vacunación a domicilio."); }
+function leerTENS_EN(){ leerTexto_EN("Senior Nursing Technician. Safe medication administration, advanced wound care, oxygen therapy, tracheostomy and colostomy management, and home vaccination."); }
+
+function leerEPTI_ES(){ leerTexto("Evaluación de proyectos TI. VAN, TIR, flujos de caja, análisis de riesgos y priorización de iniciativas tecnológicas."); }
+function leerEPTI_EN(){ leerTexto_EN("IT Project Evaluation. NPV, IRR, cash flow modeling, risk analysis and prioritization of IT initiatives."); }
+
+function leerOPS_ES(){ leerTexto("Certificaciones internacionales OPS y PAHO. CIE once, interoperabilidad FHIR, sistemas de información en salud, acceso a información en salud, monitoreo APS, prevención de infecciones e IAAS."); }
+function leerOPS_EN(){ leerTexto_EN("International certifications from PAHO and WHO. ICD eleven, FHIR interoperability, health information systems, access to health information, primary care monitoring, infection prevention and IAAS."); }
+
+function leerRESEÑAS_ES(){ leerTexto("Reseñas profesionales. Melissa demuestra un dominio excepcional en salud digital, integrando equipos clínicos y TI con comunicación clara."); }
+function leerRESEÑAS_EN(){ leerTexto_EN("Professional reviews. Melissa demonstrates exceptional mastery in digital health, integrating clinical and IT teams with clear communication."); }
+
+function leerCONTACTO_ES(){ leerTexto("Contacto profesional. Email melissa zamorano levy treinta y cuatro arroba gmail punto com. WhatsApp más cincuenta y seis nueve cinco ocho siete cinco ocho tres nueve ocho."); }
+function leerCONTACTO_EN(){ leerTexto_EN("Professional contact. Email melissa zamorano levy thirty four at gmail dot com. WhatsApp plus fifty six nine five eight seven five eight three nine eight."); }
+
+/* SCROLL REVEAL */
+const reveals = document.querySelectorAll(".reveal");
+function revealOnScroll() {
+    for (let r of reveals) {
+        const rect = r.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) r.classList.add("visible");
+    }
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* PARTÍCULAS */
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+document.getElementById("particles").appendChild(canvas);
+
+let particles = [];
+let w, h;
+
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+function createParticles() {
+    particles = [];
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 2 + 1,
+            dx: (Math.random() - 0.5) * 0.6,
+            dy: (Math.random() - 0.5) * 0.6
+        });
+    }
+}
+createParticles();
+
+function animate() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = "#00f5ff";
+
+    for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+    }
+
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* MODO OSCURO AUTOMÁTICO + BOTÓN */
+function toggleModo() {
+    document.body.classList.toggle("dark");
+    const btn = document.getElementById("modo-btn");
+    btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+}
+
+const hora = new Date().getHours();
+if (hora >= 20 || hora < 7) {
+    document.body.classList.add("dark");
+    document.getElementById("modo-btn").textContent = "☀️";
+}
+</script>
+
+</body>
+</html>
