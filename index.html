@@ -478,23 +478,27 @@ section h3 {
 let synth = window.speechSynthesis;
 let utterance;
 
-/* LECTURA EN ESPAÑOL */
+/* VOZ FLUIDA EN ESPAÑOL (CHILE) */
 function leerTexto(texto) {
     if (synth.speaking) synth.cancel();
     utterance = new SpeechSynthesisUtterance(texto);
-    utterance.lang = "es-ES";
-    utterance.rate = 1;
+    utterance.lang = "es-CL"; // voz chilena
+    utterance.rate = 1.15;    // velocidad natural
     utterance.pitch = 1;
+    utterance.volume = 1;
+    utterance.onend = () => synth.cancel(); // cierre limpio
     synth.speak(utterance);
 }
 
-/* LECTURA EN INGLÉS */
+/* VOZ FLUIDA EN INGLÉS */
 function leerTexto_EN(texto) {
     if (synth.speaking) synth.cancel();
     utterance = new SpeechSynthesisUtterance(texto);
     utterance.lang = "en-US";
-    utterance.rate = 1;
+    utterance.rate = 1.1;
     utterance.pitch = 1;
+    utterance.volume = 1;
+    utterance.onend = () => synth.cancel();
     synth.speak(utterance);
 }
 
@@ -542,55 +546,6 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
-/* PARTÍCULAS */
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-document.getElementById("particles").appendChild(canvas);
-
-let particles = [];
-let w, h;
-
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
-
-function createParticles() {
-    particles = [];
-    for (let i = 0; i < 80; i++) {
-        particles.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            r: Math.random() * 2 + 1,
-            dx: (Math.random() - 0.5) * 0.6,
-            dy: (Math.random() - 0.5) * 0.6
-        });
-    }
-}
-createParticles();
-
-function animate() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#00f5ff";
-
-    for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > w) p.dx *= -1;
-        if (p.y < 0 || p.y > h) p.dy *= -1;
-    }
-
-    requestAnimationFrame(animate);
-}
-animate();
-
 /* MODO OSCURO AUTOMÁTICO + BOTÓN */
 function toggleModo() {
     document.body.classList.toggle("dark");
@@ -607,3 +562,4 @@ if (hora >= 20 || hora < 7) {
 
 </body>
 </html>
+
