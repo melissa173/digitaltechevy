@@ -84,6 +84,23 @@ header h2 {
     color:var(--text-soft);
 }
 
+/* BANNER PRINCIPAL */
+.banner {
+    max-width:1100px;
+    margin:2rem auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:2rem;
+}
+.foto-meli {
+    width:230px;
+    border-radius:20px;
+    box-shadow:none;
+    animation:none;
+    display:block;
+}
+
 /* SECCIONES */
 main {
     max-width:1100px;
@@ -109,6 +126,59 @@ section h3 {
 .checklist { list-style:none; padding:0; }
 .checklist li { display:flex; gap:0.5rem; color:var(--text-soft); }
 .check-icon { color:var(--neon); }
+
+/* BOTONES */
+.btn-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    margin-top:1rem;
+}
+.btn {
+    padding:0.55rem 1.2rem;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    background:var(--neon);
+    color:#020617;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:0.35rem;
+    transition:0.25s ease;
+}
+.btn.secondary {
+    background:transparent;
+    border:1px solid var(--neon-soft);
+    color:var(--neon-soft);
+}
+
+/* IMÁGENES DE SECCIONES */
+.img-banner-info {
+    width: 100%;
+    max-width: 650px;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 18px;
+    animation: glow 3s infinite ease-in-out;
+}
+.img-acreditada,
+.img-epti {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 18px;
+    animation: glow 3s infinite ease-in-out;
+}
+
+/* GLOW */
+@keyframes glow {
+    0% { box-shadow:0 0 12px var(--neon),0 0 22px var(--neon-soft); }
+    50% { box-shadow:0 0 25px var(--neon),0 0 45px var(--neon-soft); }
+    100% { box-shadow:0 0 12px var(--neon),0 0 22px var(--neon-soft); }
+}
 
 /* RESEÑAS */
 .review-card {
@@ -170,6 +240,22 @@ section h3 {
     <h2>Tecnóloga en Informática Biomédica & TENS</h2>
 </header>
 
+<div class="banner">
+    <img src="melinka.png" alt="Melissa Zamorano" class="foto-meli">
+    <div>
+        <p>
+            Tecnóloga en Informática Biomédica y Técnico Superior en Enfermería con 16 años de experiencia clínica.
+            Especialista en Salud Digital, interoperabilidad, HIS, calidad de datos y optimización de flujos clínicos.
+        </p>
+        <div class="btn-row">
+            <button class="btn" onclick="leerCV_ES()">🔊 Escuchar (ES)</button>
+            <button class="btn secondary" onclick="leerCV_EN()">🔊 Listen (EN)</button>
+            <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+            <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+        </div>
+    </div>
+</div>
+
 <main>
 <section id="presentacion">
     <h3>Presentación Profesional</h3>
@@ -181,6 +267,9 @@ section h3 {
 
 <section id="informatica-biomedica">
     <h3>Informática Biomédica</h3>
+
+    <img src="img_web.png" alt="Informática Biomédica" class="img-banner-info">
+
     <ul class="checklist">
         <li><span class="check-icon">✔</span> HIS: TrakCare, SIDRA</li>
         <li><span class="check-icon">✔</span> Interoperabilidad HL7 – FHIR – SNOMED CT</li>
@@ -188,10 +277,20 @@ section h3 {
         <li><span class="check-icon">✔</span> Calidad de datos clínicos</li>
         <li><span class="check-icon">✔</span> Capacitación y adopción digital</li>
     </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerINF_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerINF_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
 </section>
 
 <section id="tens">
     <h3>Técnico Superior en Enfermería</h3>
+
+    <img src="acreditada.png" alt="Acreditación TENS" class="img-acreditada">
+
     <ul class="checklist">
         <li><span class="check-icon">✔</span> Administración segura de medicamentos</li>
         <li><span class="check-icon">✔</span> Curaciones avanzadas</li>
@@ -199,20 +298,38 @@ section h3 {
         <li><span class="check-icon">✔</span> Manejo de traqueostomía y colostomía</li>
         <li><span class="check-icon">✔</span> Vacunación a domicilio</li>
     </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerTENS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerTENS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
 </section>
 
 <section id="epti">
     <h3>Evaluación de Proyectos TI – PUC</h3>
+
+    <img src="insignia-epti.png" alt="Insignia EPTI" class="img-epti">
+
     <ul class="checklist">
         <li><span class="check-icon">✔</span> VAN – TIR</li>
         <li><span class="check-icon">✔</span> Flujos de caja</li>
         <li><span class="check-icon">✔</span> Análisis de riesgos</li>
         <li><span class="check-icon">✔</span> Priorización de iniciativas TI</li>
     </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerEPTI_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerEPTI_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
 </section>
 
 <section id="certificaciones">
     <h3>Certificaciones Internacionales OPS / PAHO</h3>
+
     <ul class="checklist">
         <li><span class="check-icon">✔</span> CIE‑11</li>
         <li><span class="check-icon">✔</span> Interoperabilidad FHIR</li>
@@ -222,6 +339,13 @@ section h3 {
         <li><span class="check-icon">✔</span> Prevención de Infecciones</li>
         <li><span class="check-icon">✔</span> IAAS</li>
     </ul>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerOPS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerOPS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
 </section>
 
 <section id="reseñas">
@@ -240,6 +364,13 @@ section h3 {
     <div class="review-card">
         <p>“Excelente capacidad de capacitación. Logra que equipos completos adopten nuevas herramientas digitales con confianza y seguridad.”</p>
         <span class="review-author">— Jefa de Capacitación, APS</span>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerRESEÑAS_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerRESEÑAS_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
     </div>
 </section>
 
@@ -269,6 +400,13 @@ section h3 {
             @tens_domicilio_melissa
         </a>
     </p>
+
+    <div class="btn-row">
+        <button class="btn" onclick="leerCONTACTO_ES()">🔊 Escuchar (ES)</button>
+        <button class="btn secondary" onclick="leerCONTACTO_EN()">🔊 Listen (EN)</button>
+        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+    </div>
 </section>
 </main>
 
@@ -281,6 +419,56 @@ section h3 {
 <canvas id="neonParticles"></canvas>
 
 <script>
+/* VOZ FLUIDA GLOBAL */
+let synth = window.speechSynthesis;
+let utterance;
+
+function leer(texto, idioma = "es") {
+    if (synth.speaking) synth.cancel();
+
+    utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = idioma === "en" ? "en-US" : "es-CL";
+    utterance.rate = idioma === "en" ? 1.12 : 1.18;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    utterance.onstart = () => {
+        synth.pause();
+        synth.resume();
+    };
+    utterance.onend = () => synth.cancel();
+
+    synth.speak(utterance);
+}
+
+function pausarReanudar() {
+    if (synth.speaking && !synth.paused) synth.pause();
+    else if (synth.paused) synth.resume();
+}
+function pausarVoz() { synth.cancel(); }
+
+/* FRASES POR SECCIÓN */
+function leerCV_ES(){ leer("Currículum Vitae de Melissa Zamorano Levy. Tecnóloga en Informática Biomédica y Técnico Superior en Enfermería con dieciséis años de experiencia clínica."); }
+function leerCV_EN(){ leer("Curriculum Vitae of Melissa Zamorano Levy. Biomedical Informatics Technologist and Senior Nursing Technician with sixteen years of clinical experience.","en"); }
+
+function leerINF_ES(){ leer("Informática Biomédica. Implementación y soporte HIS, interoperabilidad HL7, FHIR y SNOMED CT, optimización de flujos clínicos, calidad de datos y capacitación digital."); }
+function leerINF_EN(){ leer("Biomedical Informatics. HIS implementation and support, HL7, FHIR and SNOMED CT interoperability, clinical workflow optimization, data quality and digital adoption training.","en"); }
+
+function leerTENS_ES(){ leer("Técnico Superior en Enfermería. Administración segura de medicamentos, curaciones avanzadas, oxigenoterapia, manejo de traqueostomía y colostomía, y vacunación a domicilio."); }
+function leerTENS_EN(){ leer("Senior Nursing Technician. Safe medication administration, advanced wound care, oxygen therapy, tracheostomy and colostomy management, and home vaccination.","en"); }
+
+function leerEPTI_ES(){ leer("Evaluación de proyectos TI. VAN, TIR, flujos de caja, análisis de riesgos y priorización de iniciativas tecnológicas."); }
+function leerEPTI_EN(){ leer("IT Project Evaluation. NPV, IRR, cash flow modeling, risk analysis and prioritization of IT initiatives.","en"); }
+
+function leerOPS_ES(){ leer("Certificaciones internacionales OPS y PAHO. CIE once, interoperabilidad FHIR, sistemas de información en salud, acceso a información en salud, monitoreo APS, prevención de infecciones e IAAS."); }
+function leerOPS_EN(){ leer("International certifications from PAHO and WHO. ICD eleven, FHIR interoperability, health information systems, access to health information, primary care monitoring, infection prevention and IAAS.","en"); }
+
+function leerRESEÑAS_ES(){ leer("Reseñas profesionales. Melissa demuestra un dominio excepcional en salud digital, integrando equipos clínicos y TI con comunicación clara."); }
+function leerRESEÑAS_EN(){ leer("Professional reviews. Melissa demonstrates exceptional mastery in digital health, integrating clinical and IT teams with clear communication.","en"); }
+
+function leerCONTACTO_ES(){ leer("Contacto profesional. Email melissa zamorano levy treinta y cuatro arroba gmail punto com. WhatsApp más cincuenta y seis nueve cinco ocho siete cinco ocho tres nueve ocho."); }
+function leerCONTACTO_EN(){ leer("Professional contact. Email melissa zamorano levy thirty four at gmail dot com. WhatsApp plus fifty six nine five eight seven five eight three nine eight.","en"); }
+
 /* PARTICULAS NEON INTERACTIVAS */
 const canvasNP = document.getElementById("neonParticles");
 const ctxNP = canvasNP.getContext("2d");
