@@ -248,9 +248,11 @@ section h3 {
             Especialista en Salud Digital, interoperabilidad, HIS, calidad de datos y optimización de flujos clínicos.
         </p>
         <div class="btn-row">
-            <button class="btn" onclick="leerCV_ES()">🔊 Escuchar (ES)</button>
-            <button class="btn secondary" onclick="leerCV_EN()">🔊 Listen (EN)</button>
-            <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
+            <button class="btn" onclick="leerCV_ES()">🔊 Escuchar perfil (ES)</button>
+            <button class="btn secondary" onclick="leerCV_EN()">🔊 Listen profile (EN)</button>
+            <button class="btn secondary" onclick="leerPaginaCompleta()">🌐 Escuchar toda la página</button>
+            <button class="btn secondary" onclick="leerPaginaCompleta_EN()">🌐 Listen full page (EN)</button>
+            <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar / Reanudar</button>
             <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
         </div>
     </div>
@@ -281,8 +283,6 @@ section h3 {
     <div class="btn-row">
         <button class="btn" onclick="leerINF_ES()">🔊 Escuchar (ES)</button>
         <button class="btn secondary" onclick="leerINF_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
     </div>
 </section>
 
@@ -302,8 +302,6 @@ section h3 {
     <div class="btn-row">
         <button class="btn" onclick="leerTENS_ES()">🔊 Escuchar (ES)</button>
         <button class="btn secondary" onclick="leerTENS_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
     </div>
 </section>
 
@@ -322,8 +320,6 @@ section h3 {
     <div class="btn-row">
         <button class="btn" onclick="leerEPTI_ES()">🔊 Escuchar (ES)</button>
         <button class="btn secondary" onclick="leerEPTI_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
     </div>
 </section>
 
@@ -341,10 +337,37 @@ section h3 {
     </ul>
 
     <div class="btn-row">
-        <button class="btn" onclick="leerOPS_ES()">🔊 Escuchar (ES)</button>
-        <button class="btn secondary" onclick="leerOPS_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+        <button class="btn" onclick="leerOPS_ES()">🔊 Escuchar resumen (ES)</button>
+        <button class="btn secondary" onclick="leerOPS_EN()">🔊 Listen summary (EN)</button>
+    </div>
+
+    <!-- DOCUMENTOS INTEGRADOS -->
+    <div class="btn-row" style="margin-top:1.5rem; flex-direction:column; gap:0.7rem;">
+
+        <a class="btn secondary" href="cv-melissa-zamorano.html" target="_blank">📄 Descargar CV</a>
+
+        <a class="btn secondary" href="certificado-titulo-tecnologa-informatica-biomedica.html" target="_blank">🎓 Título Tecnóloga Informática Biomédica</a>
+
+        <a class="btn secondary" href="certificado-titulo-tecnico-superior-enfermeria.html" target="_blank">🎓 Título Técnico Superior en Enfermería</a>
+
+        <a class="btn secondary" href="certificado-registro-prestadores-salud.html" target="_blank">🩺 Registro de Prestadores de Salud</a>
+
+        <a class="btn secondary" href="certificado-evaluacion-proyectos-ti-puc.html" target="_blank">📘 Evaluación de Proyectos TI – PUC</a>
+
+        <a class="btn secondary" href="certificado-acceso-informacion-salud.html" target="_blank">📘 Acceso a Información en Salud</a>
+
+        <a class="btn secondary" href="certificado-cie11.html" target="_blank">📘 CIE‑11</a>
+
+        <a class="btn secondary" href="certificado-interoperabilidad-fhir.html" target="_blank">📘 Interoperabilidad FHIR</a>
+
+        <a class="btn secondary" href="certificado-sistemas-informacion-salud.html" target="_blank">📘 Sistemas de Información en Salud</a>
+
+        <a class="btn secondary" href="certificado-monitoreo-aps.html" target="_blank">📘 Monitoreo APS</a>
+
+        <a class="btn secondary" href="certificado-prevencion-infecciones.html" target="_blank">📘 Prevención de Infecciones</a>
+
+        <a class="btn secondary" href="certificado-iaas-meli.html" target="_blank">📘 IAAS</a>
+
     </div>
 </section>
 
@@ -367,10 +390,8 @@ section h3 {
     </div>
 
     <div class="btn-row">
-        <button class="btn" onclick="leerRESEÑAS_ES()">🔊 Escuchar (ES)</button>
-        <button class="btn secondary" onclick="leerRESEÑAS_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+        <button class="btn" onclick="leerRESEÑAS_ES()">🔊 Escuchar reseñas (ES)</button>
+        <button class="btn secondary" onclick="leerRESEÑAS_EN()">🔊 Listen reviews (EN)</button>
     </div>
 </section>
 
@@ -402,10 +423,8 @@ section h3 {
     </p>
 
     <div class="btn-row">
-        <button class="btn" onclick="leerCONTACTO_ES()">🔊 Escuchar (ES)</button>
-        <button class="btn secondary" onclick="leerCONTACTO_EN()">🔊 Listen (EN)</button>
-        <button class="btn secondary" onclick="pausarReanudar()">⏯ Pausar</button>
-        <button class="btn secondary" onclick="pausarVoz()">⏹ Detener</button>
+        <button class="btn" onclick="leerCONTACTO_ES()">🔊 Escuchar contacto (ES)</button>
+        <button class="btn secondary" onclick="leerCONTACTO_EN()">🔊 Listen contact (EN)</button>
     </div>
 </section>
 </main>
@@ -441,6 +460,21 @@ function leer(texto, idioma = "es") {
     synth.speak(utterance);
 }
 
+/* LEER TODA LA PÁGINA */
+function leerPaginaCompleta() {
+    const texto = document.body.innerText
+        .replace(/\s+/g, " ")
+        .replace(/[\n\r]+/g, " ");
+    leer(texto, "es");
+}
+function leerPaginaCompleta_EN() {
+    const texto = document.body.innerText
+        .replace(/\s+/g, " ")
+        .replace(/[\n\r]+/g, " ");
+    leer(texto, "en");
+}
+
+/* CONTROLES */
 function pausarReanudar() {
     if (synth.speaking && !synth.paused) synth.pause();
     else if (synth.paused) synth.resume();
