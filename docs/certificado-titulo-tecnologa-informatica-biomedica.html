@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificado de Título – Tecnóloga en Informática Biomédica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      color: #00506a;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: .5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      border-bottom: 2px solid #00b7d4;
+      padding-bottom: .25rem;
+    }
+
+    p {
+      margin: .6rem 0;
+    }
+
+    strong {
+      color: #00506a;
+    }
+
+    figure {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-left: 4px solid #00b7d4;
+      background: #f4f9fb;
+    }
+
+    /* Botones */
+    .btn {
+      background:#007b9c;
+      color:white;
+      padding:10px 16px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+      margin-top:10px;
+      margin-right:10px;
+    }
+
+    .btn-secondary {
+      background:#333;
+    }
+  </style>
+</head>
+
+<body>
+<main role="main" aria-labelledby="titulo">
+
+  <h1 id="titulo">Certificado de Título</h1>
+
+  <!-- BOTONES DE AUDIO -->
+  <button class="btn" onclick="leerCertificado('es')">🔊 Escuchar en Español</button>
+  <button class="btn" onclick="leerCertificado('en')">🔊 Listen in English</button>
+  <button class="btn btn-secondary" onclick="pausarReanudar()">⏸️ Pausar / Reanudar</button>
+
+  <!-- CONTENEDOR DEL CERTIFICADO -->
+  <div id="certificado-texto">
+
+  <header>
+    <p><strong>Instituto Profesional Duoc UC</strong><br>
+       Registro Nº 17 – Sede San Joaquín</p>
+  </header>
+
+  <section aria-labelledby="certificacion">
+    <h2 id="certificacion">Certificación</h2>
+
+    <p>
+      Certifico que, conforme a la Ley Orgánica Constitucional de Enseñanza y los reglamentos del 
+      <strong>Instituto Profesional Duoc UC</strong>, según consta en el Registro de Título Nº 233667 
+      con fecha <strong>13 de febrero de 2024</strong>, se otorgó a:
+    </p>
+
+    <p><strong>MELISSA SUSAN ZAMORANO LEVY</strong><br>
+       RUT Nº 17.001.376‑K</p>
+
+    <p>
+      El título profesional de:
+    </p>
+
+    <h2>TECNOLOGA EN INFORMÁTICA BIOMÉDICA</h2>
+
+    <p>
+      La nota de titulación obtenida fue un <strong>5,3</strong> (cinco coma tres).
+    </p>
+
+    <p>
+      Santiago de Chile, <strong>24 de abril de 2026</strong>.
+    </p>
+
+    <figure aria-label="Firma del Secretario General">
+      <p><strong>José Humberto Sepúlveda Caviedes</strong><br>
+         Secretario General – Duoc UC</p>
+      <p>Certificado emitido con Firma Electrónica Avanzada según Ley Nº 19.799.</p>
+    </figure>
+
+    <p>
+      Para verificar la validez del presente certificado, debe escanear el código QR incluido en el documento original.
+    </p>
+
+  </section>
+
+  </div> <!-- cierre contenedor -->
+
+</main>
+
+<!-- SCRIPT DESBLOQUEADO + BILINGÜE + PRONUNCIACIÓN PERSONALIZADA -->
+<script>
+// 🔓 DESBLOQUEO UNIVERSAL PARA CHROME PC
+function desbloquearAudio() {
+    const u = new SpeechSynthesisUtterance(" ");
+    u.lang = "es-CL";
+    speechSynthesis.speak(u);
+}
+document.addEventListener("click", desbloquearAudio, { once: true });
+
+// 🔊 ESPERAR VOCES
+let vocesCargadas = false;
+speechSynthesis.onvoiceschanged = () => { vocesCargadas = true; };
+
+// 🎧 LEER CERTIFICADO
+function leerCertificado(idioma) {
+    if (!vocesCargadas) {
+        setTimeout(() => leerCertificado(idioma), 300);
+        return;
+    }
+
+    const elemento = document.getElementById("certificado-texto");
+    if (!elemento) return;
+
+    let texto = elemento.innerText.trim();
+    if (!texto) return;
+
+    speechSynthesis.cancel();
+
+    const voz = new SpeechSynthesisUtterance(texto);
+    const voces = speechSynthesis.getVoices();
+
+    // Configuración de voz
+    if (idioma === "es") {
+        voz.lang = "es-CL";
+        voz.voice = voces.find(v => v.lang.includes("es")) || null;
+        voz.rate = 0.97;
+        voz.pitch = 1.05;
+    } else {
+        voz.lang = "en-US";
+        voz.voice = voces.find(v => v.lang.includes("en")) || null;
+        voz.rate = 0.92;
+        voz.pitch = 1.0;
+    }
+
+    // 🗣️ PRONUNCIACIÓN PERSONALIZADA
+    voz.text = voz.text
+        .replace(/HL7/g, "hache ele siete")
+        .replace(/FHIR/g, "fáyer")
+        .replace(/SNOMED CT/g, "esnómed ce te")
+        .replace(/SQL/g, "es qu ele")
+        .replace(/ITIL/g, "itil")
+        .replace(/GitHub/g, "guit jab")
+        .replace(/TrakCare/g, "trak ker")
+        .replace(/SIDRA/g, "sidra")
+        .replace(/CIE-11/g, "cie once")
+        .replace(/CIE 11/g, "cie once")
+        .replace(/CIE-10/g, "cie diez")
+        .replace(/CIE 10/g, "cie diez")
+        .replace(/\bHIS\b/g, "jis")
+        .replace(/\bTI\b/g, "te i");
+
+    speechSynthesis.speak(voz);
+}
+
+// ⏸️ PAUSAR / REANUDAR
+let pausado = false;
+function pausarReanudar() {
+    if (!speechSynthesis.speaking) return;
+    if (!pausado) {
+        speechSynthesis.pause();
+        pausado = true;
+    } else {
+        speechSynthesis.resume();
+        pausado = false;
+    }
+}
+</script>
+
+</body>
+</html>

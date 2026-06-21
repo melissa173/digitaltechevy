@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificado – Registro Nacional de Prestadores de Salud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #00506a;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: .5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      border-bottom: 2px solid #00b7d4;
+      padding-bottom: .25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    td {
+      padding: .5rem;
+      border-bottom: 1px solid #ddd;
+    }
+    figure {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-left: 4px solid #00b7d4;
+      background: #f4f9fb;
+    }
+
+    .btn {
+      background:#007b9c;
+      color:white;
+      padding:10px 16px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+      margin-top:10px;
+      margin-right:10px;
+    }
+
+    .btn-secondary {
+      background:#333;
+    }
+  </style>
+</head>
+
+<body>
+<main role="main" aria-labelledby="titulo">
+
+  <h1 id="titulo">Certificado de Inscripción</h1>
+
+  <!-- BOTONES DE AUDIO -->
+  <button class="btn" onclick="leerCertificado('es')">🔊 Escuchar en Español</button>
+  <button class="btn" onclick="leerCertificado('en')">🔊 Listen in English</button>
+  <button class="btn btn-secondary" onclick="pausarReanudar()">⏸️ Pausar / Reanudar</button>
+
+  <!-- CONTENEDOR DEL CERTIFICADO -->
+  <div id="certificado-texto">
+
+  <header>
+    <p><strong>Registro Nacional de Prestadores Individuales de Salud</strong><br>
+       Superintendencia de Salud – Gobierno de Chile</p>
+  </header>
+
+  <section aria-labelledby="certificacion">
+    <h2 id="certificacion">Datos de inscripción</h2>
+
+    <p>
+      Certifico que, en el Registro Nacional de Prestadores Individuales de Salud que mantiene la 
+      <strong>Superintendencia de Salud</strong>, figura la siguiente inscripción:
+    </p>
+
+    <table aria-label="Datos del registro">
+      <tr><td><strong>Fecha de registro:</strong></td><td>17/12/2012</td></tr>
+      <tr><td><strong>RUN:</strong></td><td>17.001.376‑K</td></tr>
+      <tr><td><strong>Nombre completo:</strong></td><td>Melissa Susan Zamorano Levy</td></tr>
+      <tr><td><strong>Sexo:</strong></td><td>Femenino</td></tr>
+      <tr><td><strong>Nacionalidad:</strong></td><td>Chilena</td></tr>
+      <tr><td><strong>Fecha de nacimiento:</strong></td><td>23/06/1988</td></tr>
+    </table>
+
+    <h2>Orden Profesional</h2>
+
+    <p>
+      <strong>Técnico de Nivel Superior en Enfermería:</strong><br>
+      Posee título otorgado por el Instituto Profesional Duoc UC, emitido el 15/12/2010.
+    </p>
+
+    <p>Otorgado en Santiago, con fecha <strong>06 de junio de 2026</strong>.</p>
+
+    <figure aria-label="Firma del Intendente de Prestadores">
+      <p><strong>Camilo Corral Guerrero</strong><br>
+         Intendente de Prestadores de Salud<br>
+         Superintendencia de Salud</p>
+    </figure>
+
+    <p>
+      Para verificar este certificado, consulte el Registro Nacional de Prestadores Individuales de Salud en 
+      <strong>rnpi.superdesalud.gob.cl</strong> o ingrese el código de validación en 
+      <strong>emisorcertificados.superdesalud.gob.cl/ValidacionCertificados/</strong>.
+    </p>
+
+  </section>
+
+  </div> <!-- cierre contenedor -->
+
+</main>
+
+<!-- SCRIPT DESBLOQUEADO + BILINGÜE + PRONUNCIACIÓN PERSONALIZADA -->
+<script>
+// 🔓 DESBLOQUEO UNIVERSAL PARA CHROME PC
+function desbloquearAudio() {
+    const u = new SpeechSynthesisUtterance(" ");
+    u.lang = "es-CL";
+    speechSynthesis.speak(u);
+}
+document.addEventListener("click", desbloquearAudio, { once: true });
+
+// 🔊 ESPERAR VOCES
+let vocesCargadas = false;
+speechSynthesis.onvoiceschanged = () => { vocesCargadas = true; };
+
+// 🎧 LEER CERTIFICADO
+function leerCertificado(idioma) {
+    if (!vocesCargadas) {
+        setTimeout(() => leerCertificado(idioma), 300);
+        return;
+    }
+
+    const elemento = document.getElementById("certificado-texto");
+    if (!elemento) return;
+
+    let texto = elemento.innerText.trim();
+    if (!texto) return;
+
+    speechSynthesis.cancel();
+
+    const voz = new SpeechSynthesisUtterance(texto);
+    const voces = speechSynthesis.getVoices();
+
+    // Configuración de voz
+    if (idioma === "es") {
+        voz.lang = "es-CL";
+        voz.voice = voces.find(v => v.lang.includes("es")) || null;
+        voz.rate = 0.97;
+        voz.pitch = 1.05;
+    } else {
+        voz.lang = "en-US";
+        voz.voice = voces.find(v => v.lang.includes("en")) || null;
+        voz.rate = 0.92;
+        voz.pitch = 1.0;
+    }
+
+    // 🗣️ PRONUNCIACIÓN PERSONALIZADA
+    voz.text = voz.text
+        .replace(/HL7/g, "hache ele siete")
+        .replace(/FHIR/g, "fáyer")
+        .replace(/SNOMED CT/g, "esnómed ce te")
+        .replace(/SQL/g, "es qu ele")
+        .replace(/ITIL/g, "itil")
+        .replace(/GitHub/g, "guit jab")
+        .replace(/TrakCare/g, "trak ker")
+        .replace(/SIDRA/g, "sidra")
+        .replace(/CIE-11/g, "cie once")
+        .replace(/CIE 11/g, "cie once")
+        .replace(/CIE-10/g, "cie diez")
+        .replace(/CIE 10/g, "cie diez")
+        .replace(/\bHIS\b/g, "jis")
+        .replace(/\bTI\b/g, "te i");
+
+    speechSynthesis.speak(voz);
+}
+
+// ⏸️ PAUSAR / REANUDAR
+let pausado = false;
+function pausarReanudar() {
+    if (!speechSynthesis.speaking) return;
+    if (!pausado) {
+        speechSynthesis.pause();
+        pausado = true;
+    } else {
+        speechSynthesis.resume();
+        pausado = false;
+    }
+}
+</script>
+
+</body>
+</html>

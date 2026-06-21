@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV – Melissa Zamorano Levy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --color-texto: #111;
+      --color-primario: #007b9c;
+      --color-secundario: #00506a;
+      --color-fondo: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      font-family: system-ui, sans-serif;
+      background: var(--color-fondo);
+      color: var(--color-texto);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      color: var(--color-secundario);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: .25rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      border-bottom: 2px solid var(--color-primario);
+      padding-bottom: .25rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: var(--color-primario);
+      text-decoration: underline;
+    }
+
+    a:hover,
+    a:focus {
+      outline: 2px solid var(--color-primario);
+      outline-offset: 2px;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: .3rem;
+    }
+
+    @media print {
+      body { padding: 0; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+
+<body>
+<main role="main" aria-labelledby="nombre">
+
+  <h1 id="nombre">Melissa Zamorano Levy</h1>
+
+  <!-- BOTONES DE AUDIO -->
+  <button onclick="leerCV('es')" 
+          style="background:#007b9c;color:white;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;font-weight:bold;margin-top:10px;margin-right:10px;">
+    🔊 Escuchar en Español
+  </button>
+
+  <button onclick="leerCV('en')" 
+          style="background:#00506a;color:white;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;font-weight:bold;margin-top:10px;">
+    🔊 Listen in English
+  </button>
+
+  <button onclick="pausarReanudar()" 
+          style="background:#333;color:white;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;font-weight:bold;margin-top:10px;margin-left:10px;">
+    ⏸️ Pausar / Reanudar
+  </button>
+
+  <!-- CONTENEDOR DEL CV COMPLETO -->
+  <div id="cv-completo">
+
+  <p>Tecnóloga en Informática Biomédica | Analista Funcional HIS | Soporte TI Salud | Datos Clínicos</p>
+
+  <section aria-label="Datos de contacto">
+    <p><strong>Ubicación:</strong> Puente Alto, Región Metropolitana, Chile</p>
+    <p><strong>Email:</strong> <a href="mailto:melissazamoranolevy34@gmail.com">melissazamoranolevy34@gmail.com</a></p>
+    <p><strong>Teléfono:</strong> +56 9 5875 8398</p>
+    <p><strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/melissa-z-7713a4217" rel="noopener">
+        linkedin.com/in/melissa-z-7713a4217
+      </a>
+    </p>
+  </section>
+
+  <section aria-labelledby="perfil">
+    <h2 id="perfil">Perfil profesional</h2>
+    <p>
+      Tecnóloga en Informática Biomédica y Técnico Superior de Enfermería con más de 16 años de experiencia clínica,
+      orientada a la implementación, soporte y mejora de sistemas de información en salud. Experiencia en HIS TrakCare,
+      SIDRA, soporte funcional, gestión de incidencias bajo metodología ITIL, validación de flujos clínico-administrativos,
+      documentación funcional, capacitación de usuarios y análisis de información clínica.
+    </p>
+    <p>
+      Con conocimientos en interoperabilidad en salud, HL7, FHIR, CIE-11, SNOMED CT, SQL, BI, minería de datos,
+      reportes biomédicos, Excel avanzado, Bizagi, VS Code y GitHub. Perfil híbrido clínico-tecnológico, con capacidad
+      para actuar como puente entre equipos asistenciales, administrativos y áreas TI.
+    </p>
+  </section>
+
+  <section aria-labelledby="cargos">
+    <h2 id="cargos">Cargos objetivo</h2>
+    <ul>
+      <li>Analista Funcional HIS / TrakCare</li>
+      <li>Consultora Funcional TI Salud</li>
+      <li>Soporte Aplicativo Clínico / Mesa de Ayuda HIS</li>
+      <li>Implementadora de Software Clínico</li>
+      <li>QA Funcional en Salud Digital</li>
+      <li>Analista de Información Clínica / BI Salud</li>
+      <li>Analista de Interoperabilidad HL7/FHIR Junior</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="experiencia-ti">
+    <h2 id="experiencia-ti">Experiencia profesional TI en salud</h2>
+
+    <article aria-labelledby="trakcare">
+      <h3 id="trakcare">Consultor Funcional HIS – TrakCare</h3>
+      <p><strong>Hospital Barros Luco Trudeau / SSMS</strong> | Octubre 2025 – Diciembre 2025</p>
+      <ul>
+        <li>Soporte funcional en módulos clínicos y administrativos de TrakCare.</li>
+        <li>Capacitación a aproximadamente 600 usuarios.</li>
+        <li>Validación de flujos clínicos y administrativos.</li>
+        <li>Gestión de incidencias bajo enfoque ITIL.</li>
+        <li>Documentación funcional y propuestas de mejora.</li>
+        <li>Apoyo a continuidad operacional.</li>
+      </ul>
+      <p><strong>Logros:</strong> Reducción de tiempos de resolución entre 20% y 30%. Cero interrupciones críticas.</p>
+    </article>
+
+    <article aria-labelledby="sidra">
+      <h3 id="sidra">Consultor HIS / Mesa de Ayuda Proyecto SIDRA</h3>
+      <p><strong>Hospital Barros Luco / Hospital San Luis de Buin</strong> | Noviembre 2024 – Enero 2025</p>
+      <ul>
+        <li>Gestión de tickets mediante GLPI.</li>
+        <li>Soporte funcional en módulos SIDRA.</li>
+        <li>Validación de interoperabilidad y flujos de datos.</li>
+        <li>Levantamiento de requerimientos.</li>
+        <li>Documentación funcional de incidencias y mejoras.</li>
+      </ul>
+      <p><strong>Logros:</strong> Cumplimiento sostenido de SLA. Optimización del flujo de trabajo.</p>
+    </article>
+
+    <article aria-labelledby="practica">
+      <h3 id="practica">Práctica Profesional Informática Biomédica – Browse S.A.</h3>
+      <p>Agosto 2023 – Noviembre 2023</p>
+      <ul>
+        <li>Ejecución de pruebas funcionales y reporte de incidencias.</li>
+        <li>Validación de flujos clínicos.</li>
+        <li>Modelamiento de procesos en Bizagi.</li>
+        <li>Análisis de datos y mejora continua del dato.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="registros">
+    <h2 id="registros">Experiencia en información clínica y registros</h2>
+    <p><strong>Clínica Dávila</strong> | Octubre 2024 – Diciembre 2024</p>
+    <ul>
+      <li>Gestión de listas de espera FONASA.</li>
+      <li>Depuración y validación de datos clínicos.</li>
+      <li>Coordinación con unidades administrativas.</li>
+      <li>Reducción de tiempos de gestión entre 20% y 30%.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="clinica">
+    <h2 id="clinica">Experiencia clínica relevante</h2>
+
+    <h3>TENS Neurorrehabilitación – Clínica Hogar Buena Salud</h3>
+    <p>Enero 2025 – Marzo 2026</p>
+    <p>Atención de pacientes ventilados y de alta dependencia; manejo de ventilación mecánica, oxigenoterapia, bombas de infusión, bioseguridad y registro clínico en QUIMUN.</p>
+
+    <h3>TENS Ambulancias Privadas | 2015 – Actualidad</h3>
+    <p>Traslado y estabilización de pacientes críticos, emergencias prehospitalarias, registro clínico. Servicio destacado: Caravana Coca Cola Zero 2025.</p>
+
+    <h3>TENS Toma de Muestras a Domicilio – Examedic</h3>
+    <p>Marzo 2022 – Junio 2022</p>
+    <p>Toma de PCR y exámenes clínicos a domicilio, registro y trazabilidad de muestras, educación al paciente.</p>
+
+    <h3>Experiencia Clínica Previa UCI / UTI / UPC | 2010 – 2025</h3>
+    <p>Atención de pacientes críticos, soporte vital, bombas de infusión, registros clínicos, trazabilidad asistencial.</p>
+  </section>
+
+  <section aria-labelledby="educacion">
+    <h2 id="educacion">Educación</h2>
+    <ul>
+      <li>Tecnóloga en Informática Biomédica – Duoc UC, 2024</li>
+      <li>Técnico Superior de Enfermería TENS – Duoc UC, 2010</li>
+      <li>Evaluación de Proyectos TI EPTI – Escuela de Ingeniería UC, 2024</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="certificaciones">
+    <h2 id="certificaciones">Certificaciones</h2>
+    <p>OPS / PAHO 2025: Sistemas de Información en Salud; Interoperabilidad FHIR; CIE-11; monitoreo; prevención de infecciones; cuidados a personas con demencia.</p>
+  </section>
+
+  <section aria-labelledby="habilidades">
+    <h2 id="habilidades">Habilidades técnicas</h2>
+    <ul>
+      <li>Sistemas salud digital: HIS, TrakCare, SIDRA, GLPI, QUIMUN, soporte funcional, ITIL.</li>
+      <li>Datos e interoperabilidad: SQL, BI, minería de datos, HL7, FHIR, CIE-11, SNOMED CT.</li>
+      <li>Herramientas: Excel avanzado, Bizagi, VS Code, GitHub, documentación técnica.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="competencias">
+    <h2 id="competencias">Competencias profesionales</h2>
+    <ul>
+      <li>Comunicación con usuarios clínicos y equipos TI.</li>
+      <li>Levantamiento de requerimientos y análisis funcional.</li>
+      <li>Priorización de incidencias según impacto asistencial.</li>
+      <li>Mejora continua y calidad del dato.</li>
+      <li>Capacitación y acompañamiento a usuarios.</li>
+      <li>Trabajo bajo presión en ambientes críticos.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="otros">
+    <h2 id="otros">Otros antecedentes</h2>
+    <ul>
+      <li>Registro en Superintendencia de Salud.</li>
+      <li>Vacunas Hepatitis B al día.</li>
+      <li>Inglés intermedio con lectura técnica fluida.</li>
+    </ul>
+  </section>
+
+  </div> <!-- cierre del contenedor -->
+
+</main>
+
+<!-- SCRIPT DESBLOQUEADO PARA CHROME PC -->
+<script>
+// 🔓 DESBLOQUEO UNIVERSAL PARA CHROME PC
+function desbloquearAudio() {
+    const u = new SpeechSynthesisUtterance(" ");
+    u.lang = "es-CL";
+    speechSynthesis.speak(u);
+}
+document.addEventListener("click", desbloquearAudio, { once: true });
+
+// 🔊 ESPERAR A QUE CARGUEN LAS VOCES
+let vocesCargadas = false;
+speechSynthesis.onvoiceschanged = () => {
+    vocesCargadas = true;
+};
+
+// 🎧 LEER CV (ES / EN)
+function leerCV(idioma) {
+    if (!vocesCargadas) {
+        console.log("Cargando voces...");
+        setTimeout(() => leerCV(idioma), 300);
+        return;
+    }
+
+    const elemento = document.getElementById("cv-completo");
+    if (!elemento) return;
+
+    let texto = elemento.innerText.trim();
+    if (!texto) return;
+
+    speechSynthesis.cancel();
+
+    const voz = new SpeechSynthesisUtterance(texto);
+    const voces = speechSynthesis.getVoices();
+
+    // Selección de voz real de Chrome
+    if (idioma === "es") {
+        voz.lang = "es-CL";
+        voz.voice = voces.find(v => v.lang.includes("es")) || null;
+        voz.rate = 0.97;
+        voz.pitch = 1.05;
+    } else {
+        voz.lang = "en-US";
+        voz.voice = voces.find(v => v.lang.includes("en")) || null;
+        voz.rate = 0.92;
+        voz.pitch = 1.0;
+    }
+
+    // 🗣️ PRONUNCIACIÓN PERSONALIZADA EXACTA
+    voz.text = voz.text
+        .replace(/HL7/g, "hache ele siete")
+        .replace(/FHIR/g, "fáyer")
+        .replace(/SNOMED CT/g, "esnómed ce te")
+        .replace(/SQL/g, "es qu ele")
+        .replace(/ITIL/g, "itil")
+        .replace(/GitHub/g, "guit jab")
+        .replace(/TrakCare/g, "trak ker")
+        .replace(/SIDRA/g, "sidra")
+        .replace(/CIE-11/g, "cie once")
+        .replace(/CIE 11/g, "cie once")
+        .replace(/CIE-10/g, "cie diez")
+        .replace(/CIE 10/g, "cie diez")
+        .replace(/\bHIS\b/g, "jis")
+        .replace(/\bTI\b/g, "te i");
+
+    speechSynthesis.speak(voz);
+}
+
+// ⏸️ PAUSAR / REANUDAR
+let pausado = false;
+function pausarReanudar() {
+    if (!speechSynthesis.speaking) return;
+
+    if (!pausado) {
+        speechSynthesis.pause();
+        pausado = true;
+    } else {
+        speechSynthesis.resume();
+        pausado = false;
+    }
+}
+</script>
+
+</body>
+</html>
